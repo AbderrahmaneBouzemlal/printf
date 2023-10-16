@@ -3,34 +3,35 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <unistd.h>
-/**
- * _printf - A function that memic the printf
- * @format: is a character string
- * Return: the number of characters printed
- */
+
 int _printf(const char *format, ...)
 {
 	va_list ap;
-	int count;
+	int count = 0;
 
 	va_start(ap, format);
-	count = 0;
-    if (!format || (format[0] == '%' && !format[1]))
-    {
-        return (-1);
-    }
-    if (format[0] == '%' && format[1] == ' ' && !format[2])
-    {
-        return (-1);
-    }
-	while (*format)
-	{
-		if (*format == '%')
-			count += print_format(*(++format), ap);
-		else
-			count += write(1, format, 1);
-		++format;
+	if (!format) {
+		fprintf(stderr, "Error: NULL format string\n");
+		va_end(ap);
+		return -1;
 	}
+
+	while (*format) {
+		if (*format == '%') {
+			if (*(format + 1)) {
+				count += print_format(format + 1, ap);
+				format += 2; // Move past '%' and the format specifier
+			} else {
+				fprintf(stderr, "Error: Incomplete format specifier\n");
+				va_end(ap);
+				return -1;
+			}
+		} else {
+			count += write(1, format, 1);
+			format++;
+		}
+	}
+
 	va_end(ap);
-	return (count);
+	return count;
 }
