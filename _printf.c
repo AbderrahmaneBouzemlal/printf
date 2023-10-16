@@ -10,28 +10,34 @@ int _printf(const char *format, ...)
 	int count = 0;
 
 	va_start(ap, format);
-	if (!format) {
-		fprintf(stderr, "Error: NULL format string\n");
+	if (!format) 
+    {
 		va_end(ap);
-		return -1;
+		return (-1);
 	}
 
-	while (*format) {
-		if (*format == '%') {
-			if (*(format + 1)) {
+	while (*format) 
+    {
+		if (*format == '%') 
+        {
+			if (*(format + 1)) 
+            {
 				count += print_format(format + 1, ap);
-				format += 2; // Move past '%' and the format specifier
-			} else {
-				fprintf(stderr, "Error: Incomplete format specifier\n");
+				format += 2;
+			} 
+            else 
+            {
 				va_end(ap);
-				return -1;
+				return (-1);
 			}
-		} else {
+		} 
+        else 
+        {
 			count += write(1, format, 1);
 			format++;
 		}
 	}
 
 	va_end(ap);
-	return count;
+	return (count);
 }
