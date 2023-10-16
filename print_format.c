@@ -36,6 +36,8 @@ int print_format(char specifier, va_list ap)
 		count += print_digit((long)(va_arg(ap, unsigned int)), 8, 0);
 	else if (specifier == '%')
 		count += write(1, &specifier, 1);
+    else if (specifier == 'b')
+        count += print_digit((long)(va_arg(ap, unsigned int)), 2, 0);
 	else
 	{
 		count += print_char('%');
