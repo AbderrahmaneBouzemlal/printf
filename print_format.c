@@ -5,69 +5,6 @@
 #include <stdarg.h>
 #include <unistd.h>
 /**
- * print_digit - prints the number in all bases
- * @n: The number
- * @base: The base of the number
- * @flag: helps with the X and x
- * Return: The number of characters to be printed
- */
-int print_digit(long n, int base, bool flag)
-{
-	int count;
-	char *symbols = "0123456789abcdef";
-	char *smbls = "0123456789ABCDEF";
-
-	if (n < 0 && flag == 0)
-	{
-		write(1, "-", 1);
-		return (print_digit(-n, base, flag) + 1);
-	}
-	if (n < 0 && flag == 1)
-	{
-		return (print_digit(-n, base, flag));
-	}
-	else if (n < base && flag == 0)
-	{
-		return (print_char(symbols[n]));
-	}
-	else if (n < base && flag == 1)
-	{
-		return ((print_char(smbls[n])));
-	}
-	else
-	{
-		count = print_digit(n / base, base, flag);
-		return (count + print_digit(n % base, base, flag));
-	}
-}
-/**
- * print_char - prints the character
- * @c: is a character promotted to int
- * Return: the number of character printed
- */
-int print_char(int c)
-{
-	return (write(1, &c, 1));
-}
-/**
- * print_str - prints the character
- * @str: is a string character to be printed
- * Return: the number of character printed
- */
-int print_str(char *str)
-{
-	int count;
-
-	count = 0;
-	while (*str)
-	{
-		print_char((int)*str);
-		++count;
-		++str;
-	}
-	return (count);
-}
-/**
  * print_format - handel the specifiers
  * @ap: is a pointer to the next variable
  * @specifier: The specifier character
