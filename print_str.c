@@ -11,11 +11,16 @@ int print_str(char *str)
 	int count;
 
 	count = 0;
-	while (*str)
+	if (str == NULL)
+		return (-1);
+	else
 	{
-		print_char((int)*str);
-		++count;
-		++str;
+		while (*str)
+		{
+			print_char((int)*str);
+			++count;
+			++str;
+		}
+		return (count);
 	}
-	return (count);
 }
