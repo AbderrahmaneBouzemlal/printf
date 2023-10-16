@@ -13,7 +13,7 @@ int print_str(char *str)
 	count = 0;
 	if (str == NULL)
 	{
-		count += print_char('\0');
+		return (-1);
 	}
 	while (*str)
 	{
