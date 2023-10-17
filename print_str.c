@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 /**
  * print_str - prints the character
  * @str: is a string character to be printed
@@ -12,7 +13,7 @@ int print_str(char *str)
 
 	count = 0;
 	if (str == NULL)
-		return (-1);
+		return (print_str("(null)"));
 	while (*str)
 	{
 		print_char((int)*str);
