@@ -16,9 +16,11 @@ int main(void)
     int n;
     int n1;
     char *ptr = NULL;
+    int num; 
 
-    len = _printf("%s\nhello");
-    len2 = printf("%s\nhello");
+    num = 42;
+    len = _printf("Combined Specifiers: %d, %s\n", num, "hello");
+    len2 = printf("Combined Specifiers: %d, %s\n", num, "hello");
     ui = (unsigned int)INT_MAX + 1024;
     addr = (void *)0x7ffe637541f0;
     _printf("Length:[%d, %i]\n", len, len);
@@ -46,6 +48,7 @@ int main(void)
     printf("Unknown:[%r]\n");
     _printf("%b\n", 98);
     printf("%b\n", 98);
-    _printf("%S\n", "Best\fSchool");
+    _printf("%S\n", "Best\tSchool");
+    printf("%s\n", "BestSchool");
     return (0);
 }
