@@ -9,10 +9,9 @@
  */
 int non_print(char *str)
 {
-	int count, i;
+	int count;
 
 	count = 0;
-    i = 0;
 	if (!str)
 	{
 		return (print_str("(null)"));
