@@ -43,6 +43,10 @@ int print_format(char specifier, va_list ap)
 	{
 		count += print_rev(va_arg(ap, char *));
 	}
+	else if (specifier == 'R')
+	{
+		count += print_rot13(va_arg(ap, char *));
+	}
 	else
 	{
 		count += print_char('%');
