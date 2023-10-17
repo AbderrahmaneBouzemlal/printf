@@ -29,7 +29,7 @@ int print_format(char specifier, va_list ap)
 		count += print_digit((long)(va_arg(ap, unsigned int)), 16, 0);
 	else if (specifier == 'p')
 	{
-		count += print_pointer((long)(va_arg(ap, unsigned long int)));
+		count += print_pointer((unsigned long)(va_arg(ap, unsigned long int)));
 	}
 	else if (specifier == 'X')
 		count += print_digit((long)(va_arg(ap, unsigned int)), 16, 1);
