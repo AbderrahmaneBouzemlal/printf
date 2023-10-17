@@ -7,7 +7,7 @@
  * @addres: The address
  * Return: The number of characters printed
  */
-int print_pointer(unsigned long int addres)
+int print_pointer(long int addres)
 {
 	int count;
 
