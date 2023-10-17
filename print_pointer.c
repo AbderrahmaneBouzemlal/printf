@@ -9,18 +9,17 @@
  */
 int print_pointer(unsigned long int addres)
 {
-    int count;
+	int count;
 
-    count = 0;
-    if (!addres)
-    {
-        count += print_str("(nil)");
-    }
-    else
-    {
-        count += print_str("0x");
-        count += print_digit(addres, 16, 0);
-    }
-    return (count);
-
+	count = 0;
+	if (!addres)
+	{
+		count += print_str("(nil)");
+	}
+	else
+	{
+		count += print_str("0x");
+		count += print_digit(addres, 16, 0);
+	}
+	return (count);
 }
