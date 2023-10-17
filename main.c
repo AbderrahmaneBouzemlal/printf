@@ -15,6 +15,7 @@ int main(void)
     void *addr;
     int n;
     int n1;
+    char *ptr = NULL;
 
     len = _printf("Let's try to printf a simple sentence.\n");
     len2 = printf("Let's try to printf a simple sentence.\n");
@@ -30,8 +31,8 @@ int main(void)
     printf("Unsigned octal:[%o]\n", ui);
     _printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
     printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
-    n = _printf("Character:[%c]\n", 'H');
-    n1 = printf("Character:[%c]\n", 'H');
+    n = _printf("Character:[%s]\n", ptr);
+    n1 = printf("Character:[%s]\n", ptr);
     printf("n = %d, n1 = %d\n", n, n1);
     _printf("String:[%p]\n", "I am a string !");
     printf("String:[%p]\n", "I am a string !");
@@ -45,5 +46,7 @@ int main(void)
     printf("Unknown:[%r]\n");
     _printf("%b\n", 98);
     printf("%b\n", 98);
+    _printf("%S\n", "Best\nSchool");
+    printf("%S\n", "Best\nSchool");
     return (0);
 }

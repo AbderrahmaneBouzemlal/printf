@@ -19,6 +19,8 @@ int print_format(char specifier, va_list ap)
 		count += print_char(va_arg(ap, int));
 	else if (specifier == 's')
 		count += print_str(va_arg(ap, char *));
+	else if (specifier == 'S')
+		count += non_print(va_arg(ap, char *));
 	else if (specifier == 'i' || specifier == 'd')
 		count += print_digit((long)(va_arg(ap, int)), 10, 0);
 	else if (specifier == 'u')
