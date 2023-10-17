@@ -18,7 +18,7 @@ int print_digit(long n, int base, bool flag)
 
 	if (n < 0 && flag == 0)
 	{
-		write(1, "-", 1);
+		_putchar('-');
 		return (print_digit(-n, base, flag) + 1);
 	}
 	if (n < 0 && flag == 1)

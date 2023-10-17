@@ -28,9 +28,10 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 			count += print_format(*(++format), ap);
 		else
-			count += write(1, format, 1);
+			count += _putchar(*(format));
 		++format;
 	}
+	_putchar(-1);
 	va_end(ap);
 	return (count);
 }
