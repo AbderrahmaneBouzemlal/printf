@@ -19,7 +19,7 @@ int print_pointer(unsigned long int addres)
     else
     {
         count += print_str("0x");
-        count += print_digit(addres, 16, 1);
+        count += print_digit(addres, 16, 0);
     }
     return (count);
 
