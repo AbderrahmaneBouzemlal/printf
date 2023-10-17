@@ -9,16 +9,17 @@
  */
 int non_print(char *str)
 {
-	int count;
+	int count, i;
 
 	count = 0;
+    i = 0;
 	if (!str)
 	{
-		print_str("(null)");
+		return (print_str("(null)"));
 	}
 	while (*str)
 	{
-		if ((*str > 0 && *str < 32) || *str >= 127)
+		if (*str > 0 && (*str < 32 || *str >= 127))
 		{
 			count += print_str("\\x");
 			if (*str <= 0x0f)
@@ -35,9 +36,8 @@ int non_print(char *str)
 		}
 		else
 		{
-			print_char((int)*str);
+			count += print_char((int)*str);
 			++str;
-			++count;
 		}
 	}
 	return (count);
