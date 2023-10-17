@@ -16,13 +16,8 @@ int print_str(char *str)
 		return (print_str("(null)"));
 	while (*str)
 	{
-		print_char((int)*str);
-		++count;
+		count += print_char((int)*str);
 		++str;
-	}
-	if (!str)
-	{
-		return (count);
 	}
 	return (count);
 }
