@@ -20,5 +20,9 @@ int print_str(char *str)
 		++count;
 		++str;
 	}
+	if (!str)
+	{
 		return (count);
+	}
+	return (count);
 }
