@@ -9,7 +9,7 @@
  */
 int print_rev(char *str)
 {
-    int count, i;
+    int count, i, j;
 
     count = 0;
     i = 0;
@@ -19,11 +19,11 @@ int print_rev(char *str)
     }
     while (str[i] != '\0')
     {
-        for (i -= 1; i >= 0; i--)
-        {
-            count +=_putchar(str[i]);
-        }
         i++;
+    }
+    for (j = 0; j < i; j++)
+    {
+        count += print_char(str[i - j - 1]);
     }
     return (count);
 }
