@@ -12,7 +12,7 @@ int non_print(char *str)
     int count;
 
     count = 0;
-    if (str == NULL)
+    if (!str)
     {
         print_str("(null)");
     }
