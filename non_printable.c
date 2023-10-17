@@ -23,7 +23,7 @@ int non_print(char *str)
 			count += print_str("\\x");
 			if (*str <= 0x0f)
 			{
-				print_char('0');
+				count += print_char('0');
 				count += print_digit(*str, 16, 1);
 				++str;
 			}
