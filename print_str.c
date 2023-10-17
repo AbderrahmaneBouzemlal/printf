@@ -13,14 +13,11 @@ int print_str(char *str)
 	count = 0;
 	if (str == NULL)
 		return (-1);
-	else
+	while (*str)
 	{
-		while (*str)
-		{
-			print_char((int)*str);
-			++count;
-			++str;
-		}
-		return (count);
+		print_char((int)*str);
+		++count;
+		++str;
 	}
+		return (count);
 }
