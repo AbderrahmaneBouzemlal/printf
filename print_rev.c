@@ -9,21 +9,21 @@
  */
 int print_rev(char *str)
 {
-    int count, i, j;
+	int count, i, j;
 
-    count = 0;
-    i = 0;
-    if (str == NULL)
-    {
-        return (print_str(")llun("));
-    }
-    while (str[i] != '\0')
-    {
-        i++;
-    }
-    for (j = 0; j < i; j++)
-    {
-        count += print_char(str[i - j - 1]);
-    }
-    return (count);
+	count = 0;
+	i = 0;
+	if (str == NULL)
+	{
+		return (print_str(")llun("));
+	}
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+	for (j = 0; j < i; j++)
+	{
+		count += print_char(str[i - j - 1]);
+	}
+	return (count);
 }
